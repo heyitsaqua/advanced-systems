@@ -3,10 +3,11 @@ package step_definitions;
 import io.cucumber.java.en.Given;
 import io.cucumber.java.en.Then;
 import org.openqa.selenium.WebElement;
+import pages.CommonPage;
 import pages.HomePage;
 import utils.BrowserUtils;
 
-public class HomeSteps {
+public class HomeSteps implements CommonPage {
     HomePage page;
 
     public HomeSteps() {
