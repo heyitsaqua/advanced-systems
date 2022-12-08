@@ -13,13 +13,5 @@ Feature: Home page tests
     Then Verify button "Spanish" is displayed
     Then Verify button "French" is displayed
 
-#  @US501
-#  Scenario: Verify language buttons are displayed when user click on nav button English
-#    When I click nav button English
-#    Then Verify button "English" is displayed
-#    Then Verify button "Spanish" is displayed
-#    Then Verify button "French" is displayed
-
-
 
 
