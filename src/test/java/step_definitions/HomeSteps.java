@@ -1,7 +1,10 @@
 package step_definitions;
 
+import io.cucumber.java.en.And;
 import io.cucumber.java.en.Given;
 import io.cucumber.java.en.Then;
+import io.cucumber.java.en.When;
+import org.openqa.selenium.By;
 import org.openqa.selenium.WebElement;
 import pages.CommonPage;
 import pages.HomePage;
@@ -20,4 +23,17 @@ public class HomeSteps implements CommonPage {
         BrowserUtils.getDriver();
     }
 
-}
+    @Then("Verify button {string} is displayed")
+    public void verifyButtonIsDisplayed(String button) {
+        BrowserUtils.isDisplayed(
+                BrowserUtils.getDriver().findElement(
+                        By.xpath(String.format(XPATH_TEMPLATE_LINKTEXT, button)))
+        );
+    }
+
+
+    @When("I click nav button English")
+    public void iClickNavButtonEnglish() {
+            BrowserUtils.click(page.englishBtn);}
+        }
+

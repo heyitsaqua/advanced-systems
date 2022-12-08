@@ -9,6 +9,6 @@ public class HomePage {
     public HomePage(){
         PageFactory.initElements(BrowserUtils.getDriver(), this);
     }
-
-
+    @FindBy(id = "dropdownMenu1")
+    public WebElement englishBtn;
 }
