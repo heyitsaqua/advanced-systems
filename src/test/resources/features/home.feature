@@ -3,6 +3,7 @@ Feature: Home page tests
   Background: Navigate to Home page
     Given I open url of homepage
 
+
   @AS6
   Scenario: Test title of the home page
     Then Verify title text is "Advance Systems - Home"
@@ -30,7 +31,7 @@ Feature: Home page tests
       |Google         |
       |Linkedin       |
 
-  @AS-10b
+  @AS-10b @smoke
   Scenario Outline: Each button should take the user to corresponding page
     When I click "<media>" button
     Then Verify "<title>" of the destination page matching
@@ -40,4 +41,17 @@ Feature: Home page tests
         |twitter         |Twitter           |
         |instagram       |Instagram                       |
         |linkedin        |LinkedIn: Log In or Sign Up  |
+
+  @smoke @US500
+  Scenario:  Test nav buttons are displayed
+    Then Verify button "Get Support" is displayed
+    Then Verify button "Job Career" is displayed
+    Then Verify button "Feedback" is displayed
+    When I click nav button English
+    Then Verify button "English" is displayed
+    Then Verify button "Spanish" is displayed
+    Then Verify button "French" is displayed
+
+
+
 

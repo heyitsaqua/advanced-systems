@@ -12,6 +12,7 @@ public class HomePage {
         PageFactory.initElements(BrowserUtils.getDriver(), this);
     }
 
+
     @FindBy(xpath = "//li[text()='Stay Connected:']//following-sibling::li")
     public List<WebElement> mediaBtns2;
 
@@ -32,4 +33,8 @@ public class HomePage {
 
     @FindBy(xpath = "//i[@class='fa fa-linkedin-square']")
     public WebElement linkedinBtn;
+
+    @FindBy(id = "dropdownMenu1")
+    public WebElement englishBtn;
+
 }
