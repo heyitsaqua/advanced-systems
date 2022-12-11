@@ -5,7 +5,7 @@ Feature: Home Page Related Scenarios
     Given I open url of homepage
 
 
-  @AS-3
+  @AS-3 @smoke
   Scenario Outline: Verify contact info is displayed on the top of the main page
     Then Verify "<contact>" info is displayed
     Examples:
@@ -15,7 +15,7 @@ Feature: Home Page Related Scenarios
       | Quick Contact:    |
       | +1 703-831-3217   |
 
-  @AS-14
+  @AS-14 @smoke
   Scenario Outline: Verify following information is displayed in footer section
     Then Verify "<footerinfo>" is displayed
     Examples:
