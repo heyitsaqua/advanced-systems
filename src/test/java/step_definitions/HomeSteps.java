@@ -29,5 +29,12 @@ public class HomeSteps implements CommonPage {
         );
     }
 
+    @Then("Verify {string} is displayed")
+    public void verifyIsDisplayed(String footerinfo) {
+        BrowserUtils.isDisplayed(
+                BrowserUtils.getDriver().findElement(By.xpath(String.format(XPATH_TEMPLATE_TEXT_CONTAINS,footerinfo)))
+        );
+
+    }
 }
 
