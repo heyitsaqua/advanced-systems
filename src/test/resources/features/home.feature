@@ -26,10 +26,6 @@ Feature: Home Page Related Scenarios
     |Email: info@advancesystems.us        |
     |Mon to Sat: 9.00 am to 5:00 pm       |
 
-Feature: Home page tests
-
-  Background: Navigate to Home page
-    Given I open url of homepage
 
   @AS6 @smoke
   Scenario: Test title of the home page
