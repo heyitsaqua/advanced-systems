@@ -5,5 +5,6 @@ public class GitPractice_ignore {
         System.out.println("First Git Commit");
         System.out.println("Oksana is trying to practice Git");
         System.out.println("This all - pain in butt");
+        System.out.println("I love all this");
     }
 }
