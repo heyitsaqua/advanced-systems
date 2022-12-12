@@ -62,6 +62,16 @@ BrowserUtils.click(BrowserUtils.getDriver().findElement(By.xpath(String.format(X
     @When("I click nav button English")
     public void iClickNavButtonEnglish() {
             BrowserUtils.click(page.englishBtn);}
-        }
+
+    @Then("Verify {string} of the page")
+    public void verify_of_the_page(String title) {
+        BrowserUtils.assertEquals(BrowserUtils.getDriver().getTitle(), title);
+    }
+
+    @Then("Verify click {string} button is enabled")
+    public void verify_click_button_is_enabled(String button) {
+        BrowserUtils.click(BrowserUtils.getDriver().findElement(By.xpath(String.format(XPATH_TEMPLATE_LINKTEXT, button))));
+    }
+    }
 
 

@@ -41,6 +41,12 @@ Feature: Home page tests
     Then Verify button "Spanish" is displayed
     Then Verify button "French" is displayed
 
+    @AS-8 @smoke
+    Scenario:  Test Join Now button should be clickable and take up Join Us page
+      Then Verify button "Join Now" is displayed
+      Then Verify click "Join Now" button is enabled
+      Then Verify "Advance Systems - Join Us" of the page
+
 
 
 
