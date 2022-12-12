@@ -9,10 +9,15 @@ import java.util.List;
 
 public class HomePage {
 
+
     public HomePage() {
         PageFactory.initElements(BrowserUtils.getDriver(), this);
     }
     @FindBy(className = "info-box-one")
     public List<WebElement> contactInfo;
 
+    @FindBy(id = "dropdownMenu1")
+    public WebElement englishBtn;
+
 }
+
