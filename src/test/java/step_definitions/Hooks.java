@@ -9,11 +9,14 @@ import utils.CucumberLogUtils;
 public class Hooks {
 
     @Before
-    public void setUp(Scenario scenario){
-        //initialized the driver object to open the browser
+
+    public void setUp(Scenario scenario) {
+        //initializes the driver object to open the browser
         BrowserUtils.getDriver();
         CucumberLogUtils.initScenario(scenario);
+        scenario.log(CucumberLogUtils.getLogTime() + ""); //custom message would go here
     }
+
 
     @After
     public void tearDown(Scenario scenario){
@@ -24,5 +27,6 @@ public class Hooks {
     }
 
 }//*[contains(@div, 'text')]
+
 
 

@@ -2,9 +2,11 @@ package step_definitions;
 
 import io.cucumber.java.en.Given;
 import io.cucumber.java.en.Then;
-import io.cucumber.java.en.When;
+
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebElement;
+
+import io.cucumber.java.en.When;
 import pages.CommonPage;
 import pages.HomePage;
 import utils.BrowserUtils;
@@ -20,9 +22,31 @@ public class HomeSteps implements CommonPage {
     }
 
     @Given("I open url of homepage")
-    public void i_open_url_of_homepage() {
-        // Write code here that turns the phrase above into concrete actions
+
+    public void iOpenUrlOfHomepage() {
+
+
+
+
         BrowserUtils.getDriver();
+    }
+
+
+
+        @Then("Verify {string} info is displayed")
+        public void verifyInfoIsDisplayed(String contact) {
+
+        BrowserUtils.isDisplayed(
+                BrowserUtils.getDriver().findElement(By.xpath(String.format(XPATH_TEMPLATE_TEXT,contact)))
+        );
+    }
+
+    @Then("Verify {string} is displayed")
+    public void verifyIsDisplayed(String footerinfo) {
+        BrowserUtils.isDisplayed(
+                BrowserUtils.getDriver().findElement(By.xpath(String.format(XPATH_TEMPLATE_TEXT_CONTAINS,footerinfo)))
+        );
+
     }
 
 
@@ -79,7 +103,12 @@ public class HomeSteps implements CommonPage {
         BrowserUtils.click(BrowserUtils.getDriver().findElement(By.xpath(String.format(XPATH_TEMPLATE_LINKTEXT, button))));
     }
 
+
 }
+
+
+
+
 
 
 
