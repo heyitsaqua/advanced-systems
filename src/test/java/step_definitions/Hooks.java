@@ -18,15 +18,15 @@ public class Hooks {
     }
 
 
-
-            @After
-            public void tearDown (Scenario scenario){
-                if (scenario.isFailed()) {
-
-                    CucumberLogUtils.logFail("Scenario failed", true);
-                }
-                BrowserUtils.quitDriver();
-            }
-
-
+    @After
+    public void tearDown(Scenario scenario){
+        if (scenario.isFailed()){
+            CucumberLogUtils.logFail("Scenario failed", true);
         }
+        BrowserUtils.quitDriver();
+    }
+
+}//*[contains(@div, 'text')]
+
+
+
