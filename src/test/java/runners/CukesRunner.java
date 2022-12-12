@@ -17,8 +17,8 @@ import org.junit.runner.RunWith;
         stepNotifications = true,
         dryRun = false /*if true, it will only run all feature steps not implemented and implement them*/
 
-        ,tags = "@AS-3"
 
+        ,tags = "@AS-3"
 
 
 
