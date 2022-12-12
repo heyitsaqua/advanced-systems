@@ -4,9 +4,12 @@ import io.cucumber.java.en.Given;
 import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
 import org.openqa.selenium.By;
+import org.openqa.selenium.WebElement;
 import pages.CommonPage;
 import pages.HomePage;
 import utils.BrowserUtils;
+
+import java.util.List;
 
 public class HomeSteps implements CommonPage {
     HomePage page;
@@ -37,15 +40,17 @@ public class HomeSteps implements CommonPage {
 
     @Then("Verify {string} Btn is displayed")
     public void verify_btn_is_displayed(String btn) {
-  BrowserUtils.isDisplayed(BrowserUtils.getDriver().findElement(By.xpath(String.format(XPATH_TEMPLATE_TEXT2, btn))));
+        BrowserUtils.isDisplayed(BrowserUtils.getDriver().findElement(By.xpath(String.format(XPATH_TEMPLATE_TEXT2, btn))));
 
-        }
-        @When("I click {string} button")
+    }
+
+    @When("I click {string} button")
     public void i_click_button(String button) {
-BrowserUtils.click(BrowserUtils.getDriver().findElement(By.xpath(String.format(XPATH_TEMPLATE_TEXT2, button))));
+        BrowserUtils.click(BrowserUtils.getDriver().findElement(By.xpath(String.format(XPATH_TEMPLATE_TEXT2, button))));
 
-        }
-        @Then("Verify {string} of the destination page matching")
+    }
+
+    @Then("Verify {string} of the destination page matching")
     public void verify_of_the_destination_page_matching(String title) {
         BrowserUtils.assertEquals(BrowserUtils.getDriver().getTitle(), title);
     }
@@ -61,7 +66,8 @@ BrowserUtils.click(BrowserUtils.getDriver().findElement(By.xpath(String.format(X
 
     @When("I click nav button English")
     public void iClickNavButtonEnglish() {
-            BrowserUtils.click(page.englishBtn);}
+        BrowserUtils.click(page.englishBtn);
+    }
 
     @Then("Verify {string} of the page")
     public void verify_of_the_page(String title) {
@@ -72,6 +78,11 @@ BrowserUtils.click(BrowserUtils.getDriver().findElement(By.xpath(String.format(X
     public void verify_click_button_is_enabled(String button) {
         BrowserUtils.click(BrowserUtils.getDriver().findElement(By.xpath(String.format(XPATH_TEMPLATE_LINKTEXT, button))));
     }
-    }
+
+}
+
+
+
+
 
 

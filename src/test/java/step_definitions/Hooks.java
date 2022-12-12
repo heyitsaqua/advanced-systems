@@ -23,6 +23,6 @@ public class Hooks {
         BrowserUtils.quitDriver();
     }
 
-}
+}//*[contains(@div, 'text')]
 
 

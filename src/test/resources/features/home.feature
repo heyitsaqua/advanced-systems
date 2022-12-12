@@ -20,6 +20,7 @@ Feature: Home page tests
       | Excellent Customer Service   |
 
   @AS-10 @smoke
+#    BUG -> there is no instagram!!!
   Scenario Outline: Each button should take the user to corresponding page
     And Verify "<media>" Btn is displayed
     And I click "<media>" button
@@ -31,7 +32,7 @@ Feature: Home page tests
         |instagram       |Instagram                    |
         |linkedin        |LinkedIn: Log In or Sign Up  |
 
-  @smoke @US500
+  @smoke @AS-7
   Scenario:  Test nav buttons are displayed
     Then Verify button "Get Support" is displayed
     Then Verify button "Job Career" is displayed
