@@ -5,6 +5,7 @@ import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
 import utils.BrowserUtils;
 
+
 import javax.xml.xpath.XPath;
 import java.awt.*;
 
@@ -33,4 +34,13 @@ public class HomePage {
     //@FindBy(xpath = "//div[@class='owl-item']//div[contains(text(), 'These guys')]")
     //public List<WebElement> textMsg;
 
-}
+
+        //@FindBy(className = "info-box-one")
+       // public List<WebElement> contactInfo;
+
+        @FindBy(id = "dropdownMenu1")
+        public WebElement englishBtn;
+
+        @FindBy(xpath = "//div[contains(@class, 'six-item-carousel')]")
+        public WebElement listOfCompany;
+    }
