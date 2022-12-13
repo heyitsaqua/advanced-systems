@@ -66,7 +66,7 @@ Feature: Home Page Related Scenarios
       | Rewards & Benefits           |
       | Excellent Customer Service   |
 
-  @AS-10 @smoke
+  @AS-10
 #    BUG -> there is no instagram!!!
   Scenario Outline: Each button should take the user to corresponding page
     And Verify "<media>" Btn is displayed
