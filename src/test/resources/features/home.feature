@@ -67,7 +67,6 @@ Feature: Home Page Related Scenarios
       | Excellent Customer Service   |
 
   @AS-10 @smoke
-#    BUG -> there is no instagram!!!
   Scenario Outline: Each button should take the user to corresponding page
     And Verify "<media>" Btn is displayed
     And I click "<media>" button

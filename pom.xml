@@ -67,7 +67,7 @@
                             <goal>generate</goal>
                         </goals>
                         <configuration>
-                            <projectName>AS_B6</projectName>
+                            <projectName>advanced-systemsS</projectName>
                             <skip>false</skip>
                             <!-- output directory for the generated report -->
                             <outputDirectory>${project.build.directory}/cucumber-reports</outputDirectory>
