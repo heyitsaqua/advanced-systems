@@ -43,17 +43,17 @@ public class BrowserUtils {
     }
 
     private static void initializeDriver(String browser){
-            switch (browser){
-                case "chrome":
-                    WebDriverManager.chromedriver().setup();
-                    driver = new ChromeDriver();
-                    break;
-                case "firefox":
-                    WebDriverManager.firefoxdriver().setup();
-                    driver = new FirefoxDriver();
-                    break;
-                default:
-                    System.out.println("Invalid browser name");
+        switch (browser){
+            case "chrome":
+                WebDriverManager.chromedriver().setup();
+                driver = new ChromeDriver();
+                break;
+            case "firefox":
+                WebDriverManager.firefoxdriver().setup();
+                driver = new FirefoxDriver();
+                break;
+            default:
+                System.out.println("Invalid browser name");
         }
 
 
@@ -65,6 +65,7 @@ public class BrowserUtils {
     public static void waitForElementClickability(WebElement element){
         WebDriverWait wait = new WebDriverWait(driver, 10);
         wait.until(ExpectedConditions.elementToBeClickable(element));
+
     }
 
     public static void waitForElementVisibility(WebElement element){
@@ -120,14 +121,24 @@ public class BrowserUtils {
         return element.getText();
     }
 
-    public static void click(WebElement element){
+   /* public static void click(WebElement element){
         //TODO: apply report -> logInfo("clicked the button ", element);
         waitForElementClickability(element);
         moveIntoView(element);
         highlightElement(element);
         element.click();
-    }
 
+
+    }
+    */
+
+    public static void click(WebElement element){
+        //TODO: apply report -> logInfo("clicked the button ", element);
+        moveIntoView(element);
+        highlightElement(element);
+        waitForElementClickability(element);
+        element.click();
+    }
     public static void assertEquals(String actual, String expected){
         //TODO: apply report -> logInfo("Expected: " + expected);
         //TODO: apply report -> logInfo("Actual: " + actual);
