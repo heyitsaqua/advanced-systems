@@ -9,6 +9,8 @@ import io.cucumber.java.en.When;
 import org.junit.Assert;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebElement;
+import org.openqa.selenium.support.ui.ExpectedConditions;
+import org.openqa.selenium.support.ui.WebDriverWait;
 import pages.CommonPage;
 import pages.HomePage;
 import utils.BrowserUtils;
@@ -131,7 +133,7 @@ public class HomeSteps implements CommonPage {
 
     @When("User Verify {string} is displayed")
     public void userVerifyIsDisplayed(String arg0) {
-        BrowserUtils.waitForElementVisibility(page.header1);
+        BrowserUtils.waitForElementClickability(page.header1);
 
         BrowserUtils.isDisplayed(page.header1);
     }
@@ -144,15 +146,34 @@ public class HomeSteps implements CommonPage {
     //AS-4
     @Then("User Verify {string} button is displayed")
     public void userVerifyButtonIsDisplayed(String arg0) {
+
         BrowserUtils.isDisplayed(page.readMoreBtn);
+
     }
+    @Then("User Verify {string} button is displayed every {int}, {int} seconds")
+    public void userVerifyButtonIsDisplayedEverySeconds(String arg0, int arg1, int arg2) {
+        BrowserUtils.waitForElementVisibility(page.thinkBigHeader);
+        BrowserUtils.isDisplayed(page.thinkBigHeader);
+    }
+
 
     //AS-4
     @Then("User click on {string} Btn")
     public void userClickOnBtn(String arg0) {
-        BrowserUtils.click(page.readMoreBtn);
-        BrowserUtils.switchToNewWindow();
 
+        if (page.readMoreBtn.isDisplayed()) {
+            page.readMoreBtn.click();
+        }
+        else {
+            try {
+                Thread.sleep(2000);
+                page.readMoreBtn.click();
+            }
+            catch (InterruptedException e) {
+                e.printStackTrace();
+            }
+        }
+        Assert.assertTrue(BrowserUtils.getDriver().getTitle().contains("Services"));
     }
 
     //AS-4
@@ -161,10 +182,6 @@ public class HomeSteps implements CommonPage {
         BrowserUtils.assertEquals(BrowserUtils.getDriver().getTitle(), Title);
 
     }
-
-
-
-
 
 
 

@@ -19,9 +19,6 @@ public class HomePage {
     @FindBy(xpath = "//*[contains(text(), 'Our Career Network')]")
     public WebElement Description;
 
-    @FindBy(xpath = "//*[contains(text(), 'Read More')]")
-    public WebElement ReadMoreButton;
-
     @FindBy(xpath = "//*[@class='theme-btn btn-style-two']")
     public WebElement ReadMoreBtn;
 
@@ -36,15 +33,21 @@ public class HomePage {
     @FindBy(xpath = "//*[contains(text(), 'Our Career Network')]")
     public WebElement text;
 
-    @FindBy(xpath = "//*[contains(text(), 'Read More')]")
+    @FindBy(xpath = "//div[@class = 'tp-caption']//h2[contains(text(), 'Think Big.')]")
+    public WebElement thinkBigHeader;
+
+    @FindBy(xpath = "/html/body/div[1]/section[1]/div/div[1]/div/ul/li[2]/div[4]/div/div/div/a")
     public WebElement readMoreBtn;
 
 
+    //@FindBy(xpath = "//*[contains(text(), 'Read More')]")
+    ///html/body/div[1]/section[1]/div/div[1]/div/ul/li[2]/div[4]/div/div/div/a
+
+//Test 12
    // @FindBy(xpath = "//div[@class='owl-item']//div[contains(text(), 'These guys')]")
     //public List<WebElement> textMsg;
 
-
-        //@FindBy(className = "info-box-one")
+    //@FindBy(className = "info-box-one")
         //public List<WebElement> contactInfo;
 
         @FindBy(id = "dropdownMenu1")
