@@ -1,6 +1,7 @@
 package pages;
 
 import org.openqa.selenium.WebElement;
+import org.openqa.selenium.support.FindAll;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
 import utils.BrowserUtils;
@@ -11,4 +12,10 @@ public class HomePage {
     }
     @FindBy(id = "dropdownMenu1")
     public WebElement englishBtn;
+
+
+    @FindBy(xpath = "//li/a[text()='Contact Us']")
+    public WebElement ContactNavBtn;
+
+
 }

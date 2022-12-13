@@ -162,11 +162,7 @@ public class BrowserUtils {
         moveIntoView(element);
         highlightElement(element);
 
-        if(element.isEnabled()){
-            return false;
-        }else {
-            return true;
-        }
+        return !element.isEnabled();
     }
 
     public static void switchToNewWindow(){
