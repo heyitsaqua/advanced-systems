@@ -52,6 +52,11 @@ Feature: Home page tests
     Then Verify button "Spanish" is displayed
     Then Verify button "French" is displayed
 
+    @smoke @AS-13
+   Scenario: List of Companies
+      Then verify Company names are displayed in one row
+
+
 
 
 

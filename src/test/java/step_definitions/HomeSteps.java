@@ -100,6 +100,11 @@ BrowserUtils.click(BrowserUtils.getDriver().findElement(By.xpath(String.format(X
     @When("I click nav button English")
     public void iClickNavButtonEnglish() {
             BrowserUtils.click(page.englishBtn);}
-        }
+
+    @Then("verify Company names are displayed in one row")
+    public void verifyCompanyNamesAreDisplayedInOneRow() {
+        BrowserUtils.isDisplayed(page.listOfCompany);
+    }
+}
 
 

@@ -8,6 +8,7 @@ import utils.BrowserUtils;
 import java.util.List;
 
 public class HomePage {
+
     public HomePage(){
         PageFactory.initElements(BrowserUtils.getDriver(), this);
     }
@@ -37,4 +38,6 @@ public class HomePage {
     @FindBy(id = "dropdownMenu1")
     public WebElement englishBtn;
 
+    @FindBy(xpath = "//div[contains(@class, 'six-item-carousel')]")
+    public WebElement listOfCompany;
 }
