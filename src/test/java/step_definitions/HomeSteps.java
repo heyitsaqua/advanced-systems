@@ -113,7 +113,13 @@ public class HomeSteps implements CommonPage {
 
     @When("I click nav button English")
     public void iClickNavButtonEnglish() {
+
         BrowserUtils.click(page.englishBtn);
+    }
+
+    @Then("verify Company names are displayed in one row")
+    public void verifyCompanyNamesAreDisplayedInOneRow() {
+        BrowserUtils.isDisplayed(page.listOfCompany);
     }
 
     @Then("Verify {string} of the page")
@@ -125,15 +131,7 @@ public class HomeSteps implements CommonPage {
     public void verify_click_button_is_enabled(String button) {
         BrowserUtils.click(BrowserUtils.getDriver().findElement(By.xpath(String.format(XPATH_TEMPLATE_LINKTEXT, button))));
     }
-
-
 }
-
-
-
-
-
-
 
 
 

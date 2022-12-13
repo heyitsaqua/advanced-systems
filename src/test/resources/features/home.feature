@@ -89,6 +89,11 @@ Feature: Home Page Related Scenarios
     Then Verify button "Spanish" is displayed
     Then Verify button "French" is displayed
 
+    @smoke @AS-13
+   Scenario: List of Companies
+      Then verify Company names are displayed in one row
+
+
     @AS-8 @smoke
     Scenario:  Test Join Now button should be clickable and take up Join Us page
       Then Verify button "Join Now" is displayed
