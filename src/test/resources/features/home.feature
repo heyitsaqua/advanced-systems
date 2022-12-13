@@ -50,7 +50,7 @@ Feature: Home Page Related Scenarios
     |Mon to Sat: 9.00 am to 5:00 pm       |
 
 
-  @AS6 @smoke
+  @AS-6 @smoke
   Scenario: Test title of the home page
     Then Verify title text is "Advance Systems - Home"
 
@@ -89,7 +89,7 @@ Feature: Home Page Related Scenarios
     Then Verify button "Spanish" is displayed
     Then Verify button "French" is displayed
 
-    @AS-8 @smoke
+    @AS-8
     Scenario:  Test Join Now button should be clickable and take up Join Us page
       Then Verify button "Join Now" is displayed
       Then Verify click "Join Now" button is enabled
