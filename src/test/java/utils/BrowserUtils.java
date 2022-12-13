@@ -65,6 +65,7 @@ public class BrowserUtils {
     public static void waitForElementClickability(WebElement element){
         WebDriverWait wait = new WebDriverWait(driver, 10);
         wait.until(ExpectedConditions.elementToBeClickable(element));
+
     }
 
     public static void waitForElementVisibility(WebElement element){

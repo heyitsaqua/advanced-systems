@@ -5,10 +5,32 @@ import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
 import utils.BrowserUtils;
 
+import javax.xml.xpath.XPath;
+import java.awt.*;
+
 public class HomePage {
-    public HomePage(){
+    public HomePage() {
         PageFactory.initElements(BrowserUtils.getDriver(), this);
     }
 
+    @FindBy(xpath = "//*[contains(text(), 'A bright career')]")
+    public WebElement header;
+
+    @FindBy(xpath = "//*[contains(text(), 'Our Career Network')]")
+    public WebElement Description;
+
+    @FindBy(xpath = "//*[contains(text(), 'Read More')]")
+    public WebElement ReadMoreButton;
+
+    @FindBy(xpath = "//*[@class='theme-btn btn-style-two']")
+    public WebElement ReadMoreBtn;
+
+
+    @FindBy(xpath = "//*[contains(text(), 'Words from our Clients')]")
+    public WebElement world;
+
+
+    //@FindBy(xpath = "//div[@class='owl-item']//div[contains(text(), 'These guys')]")
+    //public List<WebElement> textMsg;
 
 }
