@@ -1,3 +1,5 @@
+
+
 package step_definitions;
 
 import io.cucumber.java.en.And;
@@ -6,6 +8,7 @@ import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
 import org.junit.Assert;
 import org.openqa.selenium.By;
+import org.openqa.selenium.WebElement;
 import pages.CommonPage;
 import pages.HomePage;
 import utils.BrowserUtils;
@@ -113,13 +116,7 @@ public class HomeSteps implements CommonPage {
 
     @When("I click nav button English")
     public void iClickNavButtonEnglish() {
-
         BrowserUtils.click(page.englishBtn);
-    }
-
-    @Then("verify Company names are displayed in one row")
-    public void verifyCompanyNamesAreDisplayedInOneRow() {
-        BrowserUtils.isDisplayed(page.listOfCompany);
     }
 
     @Then("Verify {string} of the page")
@@ -131,8 +128,44 @@ public class HomeSteps implements CommonPage {
     public void verify_click_button_is_enabled(String button) {
         BrowserUtils.click(BrowserUtils.getDriver().findElement(By.xpath(String.format(XPATH_TEMPLATE_LINKTEXT, button))));
     }
+
+    @When("User Verify {string} is displayed")
+    public void userVerifyIsDisplayed(String arg0) {
+        BrowserUtils.waitForElementVisibility(page.header1);
+
+        BrowserUtils.isDisplayed(page.header1);
+    }
+    //AS-4
+    @And("User Verify {string} text is displayed")
+    public void userVerifyTextIsDisplayed(String desc) {
+        BrowserUtils.isDisplayed(page.text);
+    }
+
+    //AS-4
+    @Then("User Verify {string} button is displayed")
+    public void userVerifyButtonIsDisplayed(String arg0) {
+        BrowserUtils.isDisplayed(page.readMoreBtn);
+    }
+
+    //AS-4
+    @Then("User click on {string} Btn")
+    public void userClickOnBtn(String arg0) {
+        BrowserUtils.click(page.readMoreBtn);
+        BrowserUtils.switchToNewWindow();
+
+    }
+
+    //AS-4
+    @And("Verify {string} button takes User to page")
+    public void verifyButtonTakesUserToPage(String Title) {
+        BrowserUtils.assertEquals(BrowserUtils.getDriver().getTitle(), Title);
+
+    }
+
+
+
+
+
+
+
 }
-
-
-
-

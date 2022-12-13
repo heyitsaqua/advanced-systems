@@ -23,7 +23,7 @@ public class Hooks {
         if (scenario.isFailed()){
             CucumberLogUtils.logFail("Scenario failed", true);
         }
-        BrowserUtils.quitDriver();
+       // BrowserUtils.quitDriver();
     }
 
 }//*[contains(@div, 'text')]
