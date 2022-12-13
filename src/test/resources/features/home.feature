@@ -4,18 +4,20 @@ Feature: Home Page Related Scenarios
     Given I open url of homepage
 
 
+
   @AS-4
-  Scenario: Verify Header, description and Read More button
-    Then Verify section "Header" is displayed
-    Then Verify section "Description" text is displayed
-    Then Verify section "Read More" button is displayed
-    Then user click on "Read More" button
+  Scenario: Verify the Header, Description and Read More button
+    When User Verify "Header" is displayed
+    And User Verify "Description" text is displayed
+    Then User Verify "Read More" button is displayed
+    Then User click on "Read More" Btn
+    And  Verify "Advance Systems - Services" button takes User to page
 
 
-  @AS-12
-    Scenario: Verify header and message should be displayed
-    Then Verify the  header should display "Words from our Clients"
-    Then Verify testimonials, name, state should display on the page
+  ##@AS-12
+    ##Scenario: Verify header and message should be displayed
+    ##Then Verify the  header should display "Words from our Clients"
+    ##Then Verify testimonials, name, state should display on the page
 
     @AS-15
     Scenario Outline: Verify that each quick link is displayed and opens properly

@@ -14,8 +14,7 @@ public class HomePage {
         PageFactory.initElements(BrowserUtils.getDriver(), this);
     }
 
-    @FindBy(xpath = "//*[contains(text(), 'A bright career')]")
-    public WebElement header;
+
 
     @FindBy(xpath = "//*[contains(text(), 'Our Career Network')]")
     public WebElement Description;
@@ -31,12 +30,22 @@ public class HomePage {
     public WebElement world;
 
 
-    //@FindBy(xpath = "//div[@class='owl-item']//div[contains(text(), 'These guys')]")
+    @FindBy(xpath = "//*[contains(text(), 'A bright career')]")
+    public WebElement header1;
+
+    @FindBy(xpath = "//*[contains(text(), 'Our Career Network')]")
+    public WebElement text;
+
+    @FindBy(xpath = "//*[contains(text(), 'Read More')]")
+    public WebElement readMoreBtn;
+
+
+   // @FindBy(xpath = "//div[@class='owl-item']//div[contains(text(), 'These guys')]")
     //public List<WebElement> textMsg;
 
 
         //@FindBy(className = "info-box-one")
-       // public List<WebElement> contactInfo;
+        //public List<WebElement> contactInfo;
 
         @FindBy(id = "dropdownMenu1")
         public WebElement englishBtn;
