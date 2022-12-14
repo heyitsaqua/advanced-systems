@@ -29,7 +29,7 @@ Feature: Home Page Related Scenarios
       | https://skype.com |
       | https://linkedin.com |
 
-  @AS-3 @smoke
+  @smoke
   Scenario Outline: Verify contact info is displayed on the top of the main page
     Then Verify "<contact>" info is displayed
     Examples:
@@ -39,7 +39,7 @@ Feature: Home Page Related Scenarios
       | Quick Contact:    |
       | +1 703-831-3217   |
 
-  @AS-14 @smoke
+  @smoke
   Scenario Outline: Verify following information is displayed in footer section
     Then Verify "<footerinfo>" is displayed
     Examples:
@@ -50,11 +50,11 @@ Feature: Home Page Related Scenarios
     |Mon to Sat: 9.00 am to 5:00 pm       |
 
 
-  @AS-6 @smoke
+   @smoke
   Scenario: Test title of the home page
     Then Verify title text is "Advance Systems - Home"
 
-  @AS-11 @smoke
+   @smoke
   Scenario Outline:  There should be a section with 5 items displayed as a headers and descriptions under it
     Then Verify  "<items>" are displayed
     Examples:
@@ -79,7 +79,7 @@ Feature: Home Page Related Scenarios
         |instagram       |Instagram                    |
         |linkedin        |LinkedIn: Log In or Sign Up  |
 
-  @smoke @AS-7
+  @smoke
   Scenario:  Test nav buttons are displayed
     Then Verify button "Get Support" is displayed
     Then Verify button "Job Career" is displayed

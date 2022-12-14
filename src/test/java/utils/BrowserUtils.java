@@ -149,6 +149,7 @@ public class BrowserUtils {
         moveIntoView(element);
         highlightElement(element);
         Assert.assertTrue(element.isDisplayed());
+
     }
 
     public static boolean isEnabled(WebElement element){
