@@ -14,10 +14,10 @@ Feature: Home Page Related Scenarios
     And  Verify "Advance Systems - Services" button takes User to page
 
 
-  ##@AS-12
-    ##Scenario: Verify header and message should be displayed
-    ##Then Verify the  header should display "Words from our Clients"
-    ##Then Verify testimonials, name, state should display on the page
+  @AS-12
+    Scenario: Verify header and message should be displayed
+    Then Verify the  header should display "Words from our Clients"
+    Then Verify testimonials, name, state should display on the page
 
     @AS-15
     Scenario Outline: Verify that each quick link is displayed and opens properly
@@ -131,5 +131,6 @@ Feature: Home Page Related Scenarios
       | About Us   | About Us   | https://tla-batch-6.github.io/advance-systems-test-b6/about.html    |
       | Services   | Services   | https://tla-batch-6.github.io/advance-systems-test-b6/services.html |
       | Clients    | Clients    | https://tla-batch-6.github.io/advance-systems-test-b6/clients.html  |
+      | Join Us    | Join Us    | https://tla-batch-6.github.io/advance-systems-test-b6/joinUs.html   |
       | Contact Us | Contact Us | https://tla-batch-6.github.io/advance-systems-test-b6/contact.html  |
 
