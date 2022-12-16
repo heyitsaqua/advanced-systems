@@ -161,6 +161,7 @@ public class HomeSteps implements CommonPage {
         BrowserUtils.assertEquals(BrowserUtils.getDriver().getCurrentUrl(), arg0);
     }
 
+
     @Then("Verify {string} of the page")
     public void verify_of_the_page(String title) {
         BrowserUtils.assertEquals(BrowserUtils.getDriver().getTitle(), title);
@@ -177,6 +178,7 @@ public class HomeSteps implements CommonPage {
 
         BrowserUtils.isDisplayed(page.header1);
     }
+
     //AS-4
     @And("User Verify {string} text is displayed")
     public void userVerifyTextIsDisplayed(String desc) {
@@ -204,4 +206,20 @@ public class HomeSteps implements CommonPage {
 
     }
 
+    @Then("verify Company names are displayed in one row")
+    public void verifyCompanyNamesAreDisplayedInOneRow() {
+    }
+
+    //AS-12
+    @Then("Verify the  header should display {string}")
+    public void verifyTheHeaderShouldDisplay(String arg0) {
+
+        BrowserUtils.isDisplayed(BrowserUtils.getDriver().findElement(By.xpath("//div[@class='sec-title light centered']")));
+
+    }
+    //AS-12
+    @Then("Verify testimonials, name, state should display on the page")
+    public void verifyTestimonialsNameStateShouldDisplayOnThePage() {
+        BrowserUtils.isDisplayed(BrowserUtils.getDriver().findElement(By.xpath("//div[@class='client-testimonial-carousel owl-carousel owl-theme owl-loaded owl-drag']")));
+    }
 }
