@@ -1,3 +1,5 @@
+
+
 package step_definitions;
 
 import io.cucumber.java.en.And;
@@ -6,21 +8,30 @@ import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
 import org.junit.Assert;
 import org.openqa.selenium.By;
+import org.openqa.selenium.JavascriptExecutor;
+import org.openqa.selenium.WebDriver;
+
 import pages.CommonPage;
 import pages.HomePage;
 import utils.BrowserUtils;
 
+
+
 public class HomeSteps implements CommonPage {
     HomePage page;
+    WebDriver driver;
+
 
     public HomeSteps() {
         page = new HomePage();
 
     }
 
+
     public void iOpenUrlOfHomepage() {
         BrowserUtils.getDriver();
     }
+
 
     @Given("I open url of homepage")
     public void i_open_url_of_homepage() {
@@ -115,6 +126,40 @@ public class HomeSteps implements CommonPage {
     public void iClickNavButtonEnglish() {
         BrowserUtils.click(page.englishBtn);
     }
+    @Then("Scroll down the page")
+    public void scrollDownThePage() {
+
+        JavascriptExecutor js = (JavascriptExecutor) BrowserUtils.getDriver();
+        js.executeScript("window.scrollBy(0, 5000)");
+
+    }
+
+    @Then("Verify Navigation Menu is Displayed")
+    public void verifyNavigationMenuIsDisplayed() {
+        BrowserUtils.isDisplayed(BrowserUtils.getDriver().findElement(By.xpath("//*[@class='sticky-header']")));
+
+    }
+
+    @Then("Test the Navigation {string}")
+    public void testTheNavigation(String buttons) {
+        BrowserUtils.isDisplayed(
+                BrowserUtils.getDriver().findElement(
+                        By.xpath(String.format(XPATH_TEMPLATE_TEXT2_CONTAINS, buttons)))
+        );
+    }
+
+
+    @When("I click {string}")
+    public void iClick(String arg0) {
+        BrowserUtils.click(
+                BrowserUtils.getDriver().findElement(
+                        By.xpath(String.format(XPATH_TEMPLATE_TEXT2_CONTAINS, arg0))));
+    }
+
+    @Then("Verify {string} of Destination Page")
+    public void verifyOfDestinationPage(String arg0) {
+        BrowserUtils.assertEquals(BrowserUtils.getDriver().getCurrentUrl(), arg0);
+    }
 
     @Then("Verify {string} of the page")
     public void verify_of_the_page(String title) {
@@ -126,15 +171,37 @@ public class HomeSteps implements CommonPage {
         BrowserUtils.click(BrowserUtils.getDriver().findElement(By.xpath(String.format(XPATH_TEMPLATE_TEXT_CONTAINS, button))));
     }
 
+    @When("User Verify {string} is displayed")
+    public void userVerifyIsDisplayed(String arg0) {
+        BrowserUtils.waitForElementVisibility(page.header1);
+
+        BrowserUtils.isDisplayed(page.header1);
+    }
+    //AS-4
+    @And("User Verify {string} text is displayed")
+    public void userVerifyTextIsDisplayed(String desc) {
+        BrowserUtils.isDisplayed(page.text);
+    }
+
+    //AS-4
+    @Then("User Verify {string} button is displayed")
+    public void userVerifyButtonIsDisplayed(String arg0) {
+        BrowserUtils.isDisplayed(page.readMoreBtn);
+    }
+
+    //AS-4
+    @Then("User click on {string} Btn")
+    public void userClickOnBtn(String arg0) {
+        BrowserUtils.click(page.readMoreBtn);
+        BrowserUtils.switchToNewWindow();
+
+    }
+
+    //AS-4
+    @And("Verify {string} button takes User to page")
+    public void verifyButtonTakesUserToPage(String Title) {
+        BrowserUtils.assertEquals(BrowserUtils.getDriver().getTitle(), Title);
+
+    }
 
 }
-
-
-
-
-
-
-
-
-
-
