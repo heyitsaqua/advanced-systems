@@ -23,11 +23,6 @@ public class HomePage {
     public WebElement ContactNavBtn;
 
 
-
-
-
-
-
     @FindBy(xpath = "//*[contains(text(), 'Our Career Network')]")
     public WebElement Description;
 
@@ -59,8 +54,10 @@ public class HomePage {
         //@FindBy(className = "info-box-one")
         //public List<WebElement> contactInfo;
 
+
 //        @FindBy(id = "dropdownMenu1")
 //        public WebElement englishBtn;
+
 
         @FindBy(xpath = "//div[contains(@class, 'six-item-carousel')]")
         public WebElement listOfCompany;

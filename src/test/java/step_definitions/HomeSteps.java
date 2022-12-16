@@ -126,8 +126,6 @@ public class HomeSteps implements CommonPage {
     public void iClickNavButtonEnglish() {
         BrowserUtils.click(page.englishBtn);
     }
-
-
     @Then("Scroll down the page")
     public void scrollDownThePage() {
 
@@ -171,7 +169,7 @@ public class HomeSteps implements CommonPage {
 
     @Then("Verify click {string} button is enabled")
     public void verify_click_button_is_enabled(String button) {
-        BrowserUtils.click(BrowserUtils.getDriver().findElement(By.xpath(String.format(XPATH_TEMPLATE_LINKTEXT, button))));
+        BrowserUtils.click(BrowserUtils.getDriver().findElement(By.xpath(String.format(XPATH_TEMPLATE_TEXT_CONTAINS, button))));
     }
 
     @When("User Verify {string} is displayed")
@@ -180,6 +178,7 @@ public class HomeSteps implements CommonPage {
 
         BrowserUtils.isDisplayed(page.header1);
     }
+
     //AS-4
     @And("User Verify {string} text is displayed")
     public void userVerifyTextIsDisplayed(String desc) {
@@ -207,4 +206,20 @@ public class HomeSteps implements CommonPage {
 
     }
 
+    @Then("verify Company names are displayed in one row")
+    public void verifyCompanyNamesAreDisplayedInOneRow() {
+    }
+
+    //AS-12
+    @Then("Verify the  header should display {string}")
+    public void verifyTheHeaderShouldDisplay(String arg0) {
+
+        BrowserUtils.isDisplayed(BrowserUtils.getDriver().findElement(By.xpath("//div[@class='sec-title light centered']")));
+
+    }
+    //AS-12
+    @Then("Verify testimonials, name, state should display on the page")
+    public void verifyTestimonialsNameStateShouldDisplayOnThePage() {
+        BrowserUtils.isDisplayed(BrowserUtils.getDriver().findElement(By.xpath("//div[@class='client-testimonial-carousel owl-carousel owl-theme owl-loaded owl-drag']")));
+    }
 }

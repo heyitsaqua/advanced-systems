@@ -2,8 +2,10 @@
 /target
 advanced-systems.iml
 
+<<<<<<< HEAD
+=======
 
-advanced-systems.iml
 
+
+>>>>>>> mas
 src/test/java/runners/CukesRunner.java
-
