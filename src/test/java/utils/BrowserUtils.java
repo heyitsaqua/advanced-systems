@@ -42,6 +42,7 @@ public class BrowserUtils {
         }
     }
 
+
     private static void initializeDriver(String browser){
         switch (browser){
             case "chrome":
@@ -65,6 +66,7 @@ public class BrowserUtils {
     public static void waitForElementClickability(WebElement element){
         WebDriverWait wait = new WebDriverWait(driver, 10);
         wait.until(ExpectedConditions.elementToBeClickable(element));
+
     }
 
     public static void waitForElementVisibility(WebElement element){
@@ -120,14 +122,24 @@ public class BrowserUtils {
         return element.getText();
     }
 
-    public static void click(WebElement element){
+   /* public static void click(WebElement element){
         //TODO: apply report -> logInfo("clicked the button ", element);
         waitForElementClickability(element);
         moveIntoView(element);
         highlightElement(element);
         element.click();
-    }
 
+
+    }
+    */
+
+    public static void click(WebElement element){
+        //TODO: apply report -> logInfo("clicked the button ", element);
+        moveIntoView(element);
+        highlightElement(element);
+        waitForElementClickability(element);
+        element.click();
+    }
     public static void assertEquals(String actual, String expected){
         //TODO: apply report -> logInfo("Expected: " + expected);
         //TODO: apply report -> logInfo("Actual: " + actual);
@@ -163,11 +175,7 @@ public class BrowserUtils {
         moveIntoView(element);
         highlightElement(element);
 
-        if(element.isEnabled()){
-            return false;
-        }else {
-            return true;
-        }
+        return !element.isEnabled();
     }
 
     public static void switchToNewWindow(){
@@ -186,5 +194,10 @@ public class BrowserUtils {
         for (WebElement element: list) {
             BrowserUtils.click(element);
         }
+    }
+
+
+    public static WebDriver checkDriverStatus() {
+        return driver;
     }
 }
