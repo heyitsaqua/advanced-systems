@@ -42,6 +42,7 @@ public class BrowserUtils {
         }
     }
 
+
     private static void initializeDriver(String browser){
         switch (browser){
             case "chrome":
@@ -192,5 +193,10 @@ public class BrowserUtils {
         for (WebElement element: list) {
             BrowserUtils.click(element);
         }
+    }
+
+
+    public static WebDriver checkDriverStatus() {
+        return driver;
     }
 }
