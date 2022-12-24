@@ -2,6 +2,7 @@
 
 package step_definitions;
 
+import io.cucumber.java.Scenario;
 import io.cucumber.java.en.And;
 import io.cucumber.java.en.Given;
 import io.cucumber.java.en.Then;
@@ -11,10 +12,11 @@ import org.openqa.selenium.By;
 import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.WebDriver;
 
+import org.openqa.selenium.support.ui.WebDriverWait;
 import pages.CommonPage;
 import pages.HomePage;
 import utils.BrowserUtils;
-
+import utils.CucumberLogUtils;
 
 
 public class HomeSteps implements CommonPage {
@@ -30,6 +32,7 @@ public class HomeSteps implements CommonPage {
 
     public void iOpenUrlOfHomepage() {
         BrowserUtils.getDriver();
+       // BrowserUtils.sleep(1000);
     }
 
 
@@ -75,13 +78,14 @@ public class HomeSteps implements CommonPage {
     @Then("Verify {string} Btn is displayed")
     public void verify_btn_is_displayed(String btn) {
         BrowserUtils.isDisplayed(BrowserUtils.getDriver().findElement(By.xpath(String.format(XPATH_TEMPLATE_TEXT2, btn))));
+        BrowserUtils.sleep(300);
+        CucumberLogUtils.attachScreenshot(true);
 
     }
 
     @When("I click {string} button")
     public void i_click_button(String button) {
         BrowserUtils.click(BrowserUtils.getDriver().findElement(By.xpath(String.format(XPATH_TEMPLATE_TEXT2, button))));
-
     }
 
     @Then("Verify {string} of the destination page matching")
@@ -221,5 +225,22 @@ public class HomeSteps implements CommonPage {
     @Then("Verify testimonials, name, state should display on the page")
     public void verifyTestimonialsNameStateShouldDisplayOnThePage() {
         BrowserUtils.isDisplayed(BrowserUtils.getDriver().findElement(By.xpath("//div[@class='client-testimonial-carousel owl-carousel owl-theme owl-loaded owl-drag']")));
+    }
+
+
+    @Then("Verify Copyright text should be updated with {string}")
+    public void verifyCopyrightTextShouldBeUpdatedWith(String text) {
+        BrowserUtils.isDisplayed(BrowserUtils.getDriver().findElement(By.xpath(String.format(XPATH_TEMPLATE_TEXT, text))));
+        CucumberLogUtils.attachScreenshot(true);
+        BrowserUtils.sleep(2000);
+    }
+    @Then("Verify if header {string} is displayed")
+    public void verifyIfHeaderIsDisplayed(String text) {
+        BrowserUtils.isDisplayed(BrowserUtils.getDriver().findElement(By.xpath(String.format(XPATH_TEMPLATE_TEXT, text))));
+    }
+
+    @Then("Verify if text under secondary header {string} is displayed")
+    public void verifyIfTextUnderSecondaryHeaderIsDisplayed(String content) {
+        BrowserUtils.isDisplayed(BrowserUtils.getDriver().findElement(By.xpath(String.format(XPATH_TEMPLATE_TEXT, content))));
     }
 }

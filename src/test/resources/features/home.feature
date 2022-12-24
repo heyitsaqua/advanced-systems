@@ -133,3 +133,12 @@ Feature: Home Page Related Scenarios
       | Join Us    | Join Us    | https://tla-batch-6.github.io/advance-systems-test-b6/joinUs.html   |
       | Contact Us | Contact Us | https://tla-batch-6.github.io/advance-systems-test-b6/contact.html  |
 
+@AS-19
+  Scenario: Copyright update
+   Then Verify Copyright text should be updated with "Copyright © 2022 Advance Systems LLC. All Rights Reserved."
+
+  @AS-20
+  Scenario: Main Header section
+  Then Verify if header "Welcome to Advance Systems LLC." is displayed
+    Then Verify if header "Our Mission is simple, deliver very honest recruitment services to every customer." is displayed
+    Then Verify if text under secondary header "Day in and day out for the last years we’ve been more than just a staffing company. Throughout this time we’ve built relationships, we’ve grown together internally and externally, and have created a system that allows us to personally cater to the needs of our clients and candidates. We’ve been a mentor for some, a team builder for others, but most importantly we’ve been there. We know there is no substitute for experience, so let us help you navigate through the ever changing web of talent. " is displayed

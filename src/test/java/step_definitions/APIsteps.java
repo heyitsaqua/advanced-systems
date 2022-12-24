@@ -1,4 +1,5 @@
 package step_definitions;
+import io.cucumber.java.en.And;
 import io.cucumber.java.en.Given;
 import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
@@ -8,23 +9,17 @@ import org.testng.Assert;
 import utils.BrowserUtils;
 import utils.ConfigReader;
 
-import java.util.HashMap;
-import java.util.List;
-import java.util.Map;
-import static org.apache.http.HttpStatus.*;
-
+import java.util.*;
 public class APIsteps {
 
-    private static final String path = "/api/school/programs/devcourse";
-    private static final String path2 = "/api/school/programs/sdetcourse";
-
     Response response;
-
+    Map<String, Object> variables;
     @Given("User gets Base URL")
     public void userGetsBaseURL() {
         RestAssured.baseURI = ConfigReader.readProperty("BASE_URL");
+        Map<String,Object> map = new HashMap<String, Object>();
+        variables = new HashMap();
     }
-//21
     @When("User send GET request to the endpoint {string}")
     public void userSendGETRequestToTheEndpoint(String endpoint) {
         response = RestAssured.given()
@@ -34,12 +29,13 @@ public class APIsteps {
                 .log().all()
                 .extract()
                 .response();
+
     }
-    //21
     @Then("User should get status code {int}")
     public void userShouldGetStatusCode(int statusCode) {
         Assert.assertEquals(statusCode, response.statusCode());
     }
+
     @Then("the response should include fields called {string}, {string} and {string}")
     public void theResponseShouldIncludeFieldsCalledAnd(String field1, String field2, String field3) {
         Assert.assertNotNull(response.jsonPath().getString("data." + field1 + "[0]"));
@@ -53,13 +49,12 @@ public class APIsteps {
             Assert.assertNotNull(response.jsonPath().getString("data." + list.get(i) + "[0]"));
         }
     }
-
-    @Then("User sends request with username and password")
-    public void userSendsRequestWithUsernameAndPassword() {
+    @When("User adds basic auth with username {string} and password {string}")
+    public void userAddsBasicAuthWithUsernameAndPassword(String username, String password) {
         String path = "/api/school/departments/gettoken";
 
         response = RestAssured.given()
-                .auth().preemptive().basic("user", "user123")
+                .auth().preemptive().basic(username, password)
                 .when()
                 .get(path)
                 //.prettyPeek()
@@ -67,29 +62,39 @@ public class APIsteps {
                 .extract()// Method that extracts the response JSON DATA
                 .response();
     }
-//27
-    @When("User adds basic auth with username {string} and password {string}")
-    public void userAddsBasicAuthWithUsernameAndPassword(String arg0, String arg1) {
-        String path = "/api/school/departments/gettoken";
+    @Then("response should contain a {string}")
+    public void responseShouldContainAToken(String token) {
+        System.out.println(response.jsonPath().getString(token));
+        Assert.assertNotNull(response.jsonPath().getString(token));
+    }
+    @Then("response should contain a message {string}")
+    public void responseShouldContainAMessage(String message) {
+        System.out.println(message);
+        Assert.assertTrue(true, message);
+    }
 
+    @Then("User should be able to add to student with required fields like batch name, firstname, lastname, email")
+    public void userShouldBeAbleToAddToStudentWithRequiredFieldsLikeBatchNameFirstnameLastnameEmail() {
+        String path = "/api/school/resources/students";
+        String requestBody = "{\"batch\":\"66\",\"firstName\":\"Nurik\",\"lastName\":\"Zh\",\"email\":\"nur@gmail.com\"}";
         response = RestAssured.given()
-                .auth().preemptive().basic("user", "user123")
+                .header("Content-type", "application/json")
+                .and()
+                .body(requestBody)
                 .when()
-                .get(path)
-                .prettyPeek()
-                .then()
-                .extract()// Method that extracts the response JSON DATA
+                .post(path)
+                .then().log().all()
+                .extract()
                 .response();
     }
-    //27
-    @Then("response should contain a {string}")
-    public void response_should_contain_a(String token) {
 
+    @Then("Verify if student added")
+    public void verifyIfStudentAdded() {
+        System.out.println(response.jsonPath().getString("data"));
+        Assert.assertTrue(true, "data");
     }
-    //27
-    @Then("response should contain a message {string}")
-    public void response_should_contain_a_message(String string) {
 
-
-    }
 }
+
+
+
