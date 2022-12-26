@@ -9,10 +9,12 @@ import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.firefox.FirefoxDriver;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.Select;
+import org.openqa.selenium.support.ui.Wait;
 import org.openqa.selenium.support.ui.WebDriverWait;
 
 import java.util.List;
 import java.util.concurrent.TimeUnit;
+import java.util.function.Function;
 
 public class BrowserUtils {
     //private constructor to implement Singleton Design Class
@@ -72,6 +74,20 @@ public class BrowserUtils {
     public static void waitForElementVisibility(WebElement element){
         WebDriverWait wait = new WebDriverWait(driver, 10);
         wait.until(ExpectedConditions.visibilityOf(element));
+    }
+
+    public static void waitForPageLoad() {
+
+        Wait<WebDriver> wait = new WebDriverWait(BrowserUtils.getDriver(), 30);
+        wait.until(new Function<WebDriver, Boolean>() {
+            public Boolean apply(WebDriver driver) {
+                System.out.println("Current Window State       : "
+                        + String.valueOf(((JavascriptExecutor) driver).executeScript("return document.readyState")));
+                return String
+                        .valueOf(((JavascriptExecutor) driver).executeScript("return document.readyState"))
+                        .equals("complete");
+            }
+        });
     }
 
     public static void sleep(int millis){
@@ -198,5 +214,7 @@ public class BrowserUtils {
 
     public static WebDriver checkDriverStatus() {
         return driver;
+
+
     }
 }

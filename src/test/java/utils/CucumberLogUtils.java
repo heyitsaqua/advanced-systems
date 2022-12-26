@@ -48,4 +48,11 @@ public class CucumberLogUtils {
         Calendar calendar = Calendar.getInstance();
         return dateFormat.format(calendar.getTime());
     }
-}
+
+    public static void attachScreenshot(boolean takeScreenshot) {
+        if (takeScreenshot) {
+            final byte[] screenshot = ((TakesScreenshot) BrowserUtils.getDriver()).getScreenshotAs(OutputType.BYTES);
+            currentScenario.attach(screenshot, "image/png", "screenshot");
+
+        }
+    }}

@@ -16,7 +16,7 @@ import org.junit.runner.RunWith;
         glue = "step_definitions",
         stepNotifications = true,
         dryRun = false /*if true, it will only run all feature steps not implemented and implement them*/
-        ,tags = "@AS-10"
+        ,tags = "@AS-9"
 
         //keywords
         //"and not" - 'x and not y' to exclude scenarios with that tag
