@@ -141,7 +141,8 @@ public class HomeSteps implements CommonPage {
     @Then("Verify Navigation Menu is Displayed")
     public void verifyNavigationMenuIsDisplayed() {
         BrowserUtils.isDisplayed(BrowserUtils.getDriver().findElement(By.xpath("//*[@class='sticky-header']")));
-
+CucumberLogUtils.attachScreenshot(true);
+BrowserUtils.sleep(1000);
     }
 
     @Then("Test the Navigation {string}")
